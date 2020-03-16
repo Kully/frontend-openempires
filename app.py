@@ -8,6 +8,7 @@ import time
 from util import *
 
 database = 'activegames.json'
+GAME_PATH = "$HOME/Wine Files/drive_c/Program Files/Microsoft Games/Age of Empires II Trial/Data/"
 
 app = Flask(__name__)
 flush_active_games(database)
@@ -24,7 +25,7 @@ def games():
     if request.method == 'GET':
         print('GET on /games')
         activegames = read_activegames(database)
-        print('  DB: %r' %data)
+        print('  DB: %r' %activegames)
 
     return render_template('index.html')
 
@@ -34,11 +35,23 @@ def join():
     '''join an active game'''
     if request.method == 'POST':
         print('POST on /join')  
-        data = json.loads(request.data)
-        print('  DB: %r' %data)
+        game = json.loads(request.data)
 
-        # >> LAUNCH THE AGE BINARIES !!!
-        rc = subprocess.call('./run.sh')
+        name = games['name']
+        port = game['port']
+        players = game['players']+str(1)
+
+        print('  name   : %r' %name)
+        print('  port   : %r' %port)
+        print('  players: %r' %players)
+
+
+        print('start a server')
+        # os.system('./openempires --server --port 1234 --users 3')
+        # os.system(f'./openempires --server --port {port} --users {players}')
+        
+        print('start a client')
+        # subprocess.call(f'./openempires --host localhost --port {port} --xres 1440 --yres 900 --path "{GAME_PATH}')
 
     return render_template('index.html')
 
