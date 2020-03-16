@@ -1,2 +1,3 @@
 # frontend-openempires
-frontend for openempires
+
+Flask and VanillaJS all the way!

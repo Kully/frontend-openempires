@@ -1,0 +1,115 @@
+/*
+urxvt.foreground: #E8DFD6   [used]
+urxvt.background:  #021B21  [used]
+urxvt.cursorColor: #2E3340
+urxvt.color0: #032C36
+urxvt.color8: #065F73
+urxvt.color1: #C2454E
+urxvt.color9: #EF5847
+urxvt.color2: #7CBF9E
+urxvt.color10: #A2D9B1
+urxvt.color3: #8A7A63       [used]
+urxvt.color11: #BEB090
+urxvt.color4: #2E3340
+urxvt.color12: #61778D
+urxvt.color5: #FF5879
+urxvt.color13: #FF99A1
+urxvt.color6: #44B5B1
+urxvt.color14: #9ED9D8
+urxvt.color7: #F2F1B9
+urxvt.color15: #F6F6C9
+*/
+
+
+@font-face {
+	font-family: 'terminus';
+	src:
+		url('terminus.ttf')
+		format("truetype");
+}
+
+body {
+	font-family: terminus;
+	background-color: #021B21;
+	color: #ed773f;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: fixed;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.left-table-th {
+	color: #8A7A63;
+}
+
+.right-table-th {
+	color: #8A7A63
+}
+
+
+.left-table-row {
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+}
+.left-table-row:hover {
+	color: #F6F6C9;
+	background-color: #62605A;
+}
+
+#div-leftside {
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 350px;
+	background-color: #1e201b;
+}
+
+#div-rightside {
+	position: relative;
+	float: left;
+	width: 50%;
+	background-color: #1e201b;
+}
+
+#settings-for-new-game-div {
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+}
+
+#create-button {
+	width: 50%;
+	height: 40px;
+	float: left;
+	font-size: 20px;
+	font-family: terminus;
+	border-radius: 3px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background-color: #9dc6a7;
+}
+
+#games-button {
+	width: 50%;
+	height: 40px;
+	float: left;
+	font-size: 20px;
+	font-family: terminus;
+	border-radius: 3px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background-color: #BEB090;
+}
