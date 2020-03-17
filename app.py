@@ -9,6 +9,8 @@ from util import *
 
 database = 'activegames.json'
 GAME_PATH = "$HOME/Wine Files/drive_c/Program Files/Microsoft Games/Age of Empires II Trial/Data/"
+XRES = 1200
+YRES = 750
 
 app = Flask(__name__)
 flush_active_games(database)
@@ -36,21 +38,19 @@ def join():
     if request.method == 'POST':
         print('POST on /join')  
         game = json.loads(request.data)
+        print(game)
 
-        name = games['name']
+        name = game['name']
         port = game['port']
-        players = game['players']+str(1)
-
-        print('  name   : %r' %name)
-        print('  port   : %r' %port)
-        print('  players: %r' %players)
-
+        try:
+            players = str(int(game['players']) + 1)
+        except ValueError:
+            players = game['players']
 
         print('start a server')
-        # os.system('./openempires --server --port 1234 --users 3')
-        # os.system(f'./openempires --server --port {port} --users {players}')
+        os.system(f'../openempires/./openempires --server --port {port} --users {players}')
         
-        print('start a client')
+        # print('start a client')
         # subprocess.call(f'./openempires --host localhost --port {port} --xres 1440 --yres 900 --path "{GAME_PATH}')
 
     return render_template('index.html')
